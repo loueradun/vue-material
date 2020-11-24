@@ -231,10 +231,16 @@
           break
 
         case 'Enter':
+          event.preventDefault()
           this.setSelection()
           break
 
         case 'Space':
+          event.preventDefault()
+          this.setSelection()
+          break
+          
+        case 'Tab':
           this.setSelection()
           break
 
