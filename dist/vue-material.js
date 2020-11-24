@@ -1,6 +1,6 @@
 /*!
  * vue-material v1.0.0-beta-15
- * Made with <3 by marcosmoura 2020
+ * Made with <3 by loueradun 2020
  * Released under the MIT License.
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1057,7 +1057,7 @@ exports.default = {
       this.clearField();
     },
     isInvalidValue: function isInvalidValue() {
-      return this.$el.validity.badInput;
+      return this.$el.validity ? this.$el.validity.badInput : false;
     },
     setFieldValue: function setFieldValue() {
       this.MdField.value = this.model;
@@ -9646,10 +9646,16 @@ exports.default = new _MdComponent2.default({
           break;
 
         case 'Enter':
+          event.preventDefault();
           this.setSelection();
           break;
 
         case 'Space':
+          event.preventDefault();
+          this.setSelection();
+          break;
+
+        case 'Tab':
           this.setSelection();
           break;
 
