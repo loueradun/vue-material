@@ -197,8 +197,9 @@
       removeHighlight () {
         this.MdField.highlighted = false
       },
-      openSelect () {
+      openSelect (event) {
         if (!this.disabled) {
+		  event.preventDefault()
           this.showSelect = true
         }
       },

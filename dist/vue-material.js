@@ -8957,8 +8957,9 @@ exports.default = {
     removeHighlight: function removeHighlight() {
       this.MdField.highlighted = false;
     },
-    openSelect: function openSelect() {
+    openSelect: function openSelect(event) {
       if (!this.disabled) {
+        event.preventDefault();
         this.showSelect = true;
       }
     },
