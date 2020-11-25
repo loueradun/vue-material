@@ -175,6 +175,8 @@
       },
       onEsc () {
         this.MdMenu.active = false
+        this.MdMenu.bodyClickObserver.destroy()
+        this.MdMenu.windowResizeObserver.destroy()
         this.destroyKeyDownListener()
       },
       getOffsets () {
@@ -233,15 +235,18 @@
         case 'Enter':
           event.preventDefault()
           this.setSelection()
+		  this.onEsc()
           break
 
         case 'Space':
           event.preventDefault()
           this.setSelection()
+		  this.onEsc()
           break
           
         case 'Tab':
           this.setSelection()
+		  this.onEsc()
           break
 
         case 'Escape':

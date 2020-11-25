@@ -9580,6 +9580,8 @@ exports.default = new _MdComponent2.default({
     },
     onEsc: function onEsc() {
       this.MdMenu.active = false;
+      this.MdMenu.bodyClickObserver.destroy();
+      this.MdMenu.windowResizeObserver.destroy();
       this.destroyKeyDownListener();
     },
     getOffsets: function getOffsets() {
@@ -9648,15 +9650,18 @@ exports.default = new _MdComponent2.default({
         case 'Enter':
           event.preventDefault();
           this.setSelection();
+          this.onEsc();
           break;
 
         case 'Space':
           event.preventDefault();
           this.setSelection();
+          this.onEsc();
           break;
 
         case 'Tab':
           this.setSelection();
+          this.onEsc();
           break;
 
         case 'Escape':
@@ -9674,7 +9679,7 @@ exports.default = new _MdComponent2.default({
     },
     setStyles: function setStyles() {
       if (this.MdMenu.fullWidth) {
-        this.menuStyles = '\n          width: ' + this.MdMenu.instance.$el.offsetWidth + 'px;\n          max-width: ' + this.MdMenu.instance.$el.offsetWidth + 'px\n        ';
+        this.menuStyles = '\n            width: ' + this.MdMenu.instance.$el.offsetWidth + 'px;\n            max-width: ' + this.MdMenu.instance.$el.offsetWidth + 'px\n          ';
       }
     },
     getBodyPosition: function getBodyPosition() {
